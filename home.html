@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+{%block title%}Home page{%endblock%}
+{%block content%}
+<center>
+<h1 class="c1">Heart Disease Prediction</h1>
+	<h1 class="c2">Nearly 60% Of World's Population Have Some Form of Heart Disease</h1>
+	<hr/>
+	<div class="c4">
+	<img width="400" height="300" src="{{url_for('static',filename='image.jpg')}}"/>
+    </div>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+ 	<p class="c3"><b>Heart and blood vessel disease (also called heart disease) includes numerous problems,
+        many of which are related to a process called atherosclerosis.
+
+     Atherosclerosis is a condition that develops when a substance called plaque
+        builds up in the walls of the arteries. This buildup narrows the arteries, making it harder for blood to flow through. If a blood clot forms, it can
+        block the blood flow. This can cause a heart attack or stroke.</b></p>
+     <h1 class="c5">Heart Disease Prediction System</h1>
+     <div class="c6">
+     <a class="btn btn-danger btn-lg" href="{{url_for('predict')}}">Predict</a>
+     </div>
+     <p class="c3"><b>This Prediction tool is used to predict the chances of a person have Heart Disease or not.A machine Learning Model is developed to predict
+         the outcome using Decision Tree Algorithm.Some basic inputs such as age,gender,blood pressure etc are taken from the user in order to predict the
+         result.</b></p>
+    </center>
+{%endblock%}

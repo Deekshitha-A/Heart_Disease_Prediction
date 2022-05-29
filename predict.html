@@ -1,0 +1,111 @@
+{%extends 'base.html'%}
+{%block title%}Display page{%endblock%}
+{%block content%}
+<div class="container">
+    <form method="POST" class="form-register" >
+        <!--protect form from attackers-->
+        {{form.hidden_tag()}}
+        <h1>Enter Details</h1>
+        <br>
+        <pre>
+			Age           : [years]
+			Sex           : [1: Male, 0: Female]
+			ChestPainType : [0: Typical Angina, 1: Atypical Angina, 2: Non-Anginal Pain, 3: Asymptomatic]
+			RestingBP     : [mm Hg]
+			Cholesterol   : [mm/dl]
+			FastingBS     : [1: if FastingBS > 120 mg/dl, 0: otherwise]
+			RestingECG    : [0: Normal, 1: having ST-T wave abnormality ,2: showing probable or definite
+							left ventricular hypertrophy by Estes' criteria]
+			MaxHR         : maximum heart rate [Numeric value between 60 and 202]
+			ExerciseAngina: [1: Yes, 0: No]
+			Oldpeak       : oldpeak = ST [Numeric value measured in depression]
+			ST_Slope      : the slope of the peak exercise ST segment [0: upsloping, 1: flat, 2: downsloping]
+			HeartDisease  : output class [1: heart disease, 0: Normal]
+		</pre>
+        <div class="row mb-3">
+				<div class="col">
+		            {{form.Age.label()}}
+                    {{form.Age(class='form-control',placeholder="Age",min=0)}}
+		        </div>
+		        <div class="col">
+		            {{form.Gender.label()}}
+                    {{form.Gender(class='form-control',placeholder="0-Female 1-Male",min=0,max=1)}}
+		        </div>
+		        <div class="col">
+		        	{{form.ChestPainType.label()}}
+                    {{form.ChestPainType(class='form-control',placeholder="ChestPainType", min="0", max="3")}}
+		        </div>
+		        <div class="col">
+		        	{{form.RestingBP.label()}}
+                    {{form.RestingBP(class='form-control',placeholder="RestingBP")}}
+		        </div>
+		</div>
+        <div class="row mb-3">
+				<div class="col">
+		            {{form.Cholesterol.label()}}
+                    {{form.Cholesterol(class='form-control',placeholder="Cholesterol")}}
+		        </div>
+		        <div class="col">
+		            {{form.FastingBS.label()}}
+                    {{form.FastingBS(class='form-control',placeholder="FastingBS",min=0,max=1)}}
+		        </div>
+		        <div class="col">
+		        	{{form.RestingECG.label()}}
+                    {{form.RestingECG(class='form-control',placeholder="RestingECG",min=0,max=2)}}
+		        </div>
+		        <div class="col">
+		        	{{form.MaxHR.label()}}
+                    {{form.MaxHR(class='form-control',placeholder="MaxHR",min=60,max=202)}}
+		        </div>
+		</div>
+        <div class="row mb-3">
+				<div class="col">
+		            {{form.ExerciseAngina.label()}}
+                    {{form.ExerciseAngina(class='form-control',placeholder="ExerciseAngina",min=0,max=1)}}
+		        </div>
+		        <div class="col">
+		            {{form.Oldpeak.label()}}
+                    {{form.Oldpeak(class='form-control',placeholder="Oldpeak")}}
+		        </div>
+		        <div class="col">
+		        	{{form.ST_Slope.label()}}
+                    {{form.ST_Slope(class='form-control',placeholder="ST_Slope",min=0,max=2)}}
+		        </div>
+                <div class="col"></div>
+		</div>
+        <br>
+        {{form.submit(class="btn btn-primary btn-lg")}}
+    </form>
+</div><!--
+{% if info!=None %}
+	{% if info == '1' %}
+      <h1>Likely to have heart diseases.</h1>
+    {% else %}
+	  {{info}}
+      <h1>Not likely to have heart disease .</h1>
+	{% endif %}
+{% endif %}-->
+<!--
+<table class="table table-hover table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Add/Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+                <tr>
+                    <td>{{ item.username }}</td>
+                    <td>{{ item.email }}</td>
+                    <td>
+                        <button class="btn btn-outline btn-info">Update</button>
+                        <button class="btn btn-outline btn-success">Delete</button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+-->
+{%endblock%}

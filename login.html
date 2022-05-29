@@ -1,0 +1,26 @@
+{%extends 'base.html'%}
+{%block title%}Login page{%endblock%}
+{%block content%}
+<div class="container">
+    <form method="POST" class="form-signin">
+        {{form.hidden_tag()}}
+        <div style="text-align:center;">
+            <i class="fa-duotone fa-file-user "></i>
+        </div>
+        <i class="fa-duotone fa-file-user "></i>
+        <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+        {{form.username.label()}}
+        {{form.username(class='form-control',placeholder="Username")}}
+        {{form.pwd.label()}}
+        {{form.pwd(class='form-control',placeholder="Password")}}
+        <br>
+        <div class="checkbox mb-3">
+            <h4>Don't have an account?</h4>
+            <a class="btn btn-sn btn-secondary" href="{{url_for('register')}}">Register</a>
+        </div>
+        <div class="d-grid gap-2 ">
+            {{form.submit(class="btn btn-outline-primary")}}
+        </div>
+    </form>
+</div>
+{%endblock%}
