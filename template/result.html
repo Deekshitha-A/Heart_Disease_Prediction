@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{%block title%}Result page{%endblock%}
+{%block content%}
+{{ value }}
+{% if value == '1' %}
+  <h1>Likely to have heart diseases.</h1>
+{% else %}
+  <h1> Not likely to have heart disease .</h1>
+{% endif %}
+{%endblock%}
